@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Event Edit</h1>
+<div class="container">
+    <form action="/events/<%=event._id%>" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+            <div class="input-field">
+                <h5>Event Title</h5>
+                <input type="text" id="title" class="form-control" name="title" value="<%=event.title%>">
+                <label for="title">Title</label>
+            </div>
+
+            <div class="input-field">
+                <h5>Location</h5>
+                <input type="text" id="location" class="form-control" name="location" value="<%=event.location%>">
+                <label for="location">Location</label>
+            </div>
+            
+            <div>
+                <h5>Event Date</h5>
+                <input type="date" class="form-control date-picker" id="date" name="date" value="<%=new Date(event.date).toISOString().split('T')[0]%>">
+                <label for="date">Event Date</label>
+            </div>
+
+            <div>
+                <h5>Event Time</h5>
+                <input type="time" class="form-control" id="time" name="time" value="<%=event.time%>">
+                <label for="time" class="form-label">Time of the Event</label>
+            </div>
+
+        <div>
+            <input type="submit" value="Save" class="btn">
+            <a href="/events" class="btn orange">Cancel</a>
+        </div>
+    </form>
+
+</div>
+
+
+<%- include('../partials/footer.ejs') %>

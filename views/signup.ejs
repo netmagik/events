@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+
+    <h1><%=title %> </h1>
+    <section class="container d-flex justify-content-center">
+   
+    <form action="/signup" method="POST">
+        <div class="form-floating">
+            <input type="text" class="form-control mb-3" name="userName" placeholder="username" required>
+            <label for="userName">Username</label>
+        </div>
+        <div class="form-floating">
+            <input type="email" class="form-control mb-3" name="email" placeholder="email" required>
+        <label for="email">Email</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control mb-3" name="password" placeholder="password" required>
+            <label for="email">Password</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control mb-3" name="confirmPassword" placeholder="confirm password" required>
+            <label for="email">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-success mb-3" type="submit" value="signup">Signup</button>
+        <a href="/login" class="text-success">Already have an account? Login</a>
+    </form> 
+</section>
+
+
+
+    <%- include('partials/footer.ejs') %>

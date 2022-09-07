@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %>
+    <h1>Add New Event</h1>
+    <section class="container d-flex justify-content-center">
+        <form action="/events/createEvent" method='POST' id="createEventForm">
+            <label for="eventItem" class="form-label">Event Name:</label>
+            <input type="text" id="title" class="form-control" placeholder="Enter Event Title" name='eventItem' required>
+            <label for="date">Event Date:</label>
+            <input type="date" class="form-control date-picker" id="date" name="date" required>
+            <label for="time" class="form-label">Time of the Event:</label>
+            <input type="time" class="form-control" id="time" name="time" required>
+            <label for="location" class="form-label">Location of the Event:</label>
+            <input type="text" class="form-control" id="location" placeholder="Event Location" name="location" required>
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </section>
+
+    <%- include('../partials/footer.ejs') %>

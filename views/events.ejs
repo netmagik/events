@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+    <h1>All Events</h1>
+    <a class="btn" href="events/add">Add New Event</a>
+    <section class="events-container">
+   
+    <% if (eventItems != null) {
+        eventItems.forEach( el => { %> 
+        <div class="card">
+            <h3><%=el.title%> </h3>
+            <p>Location: <%=el.location%> </p>
+            <span>Date: <%= new Date(el.date).toUTCString().split(" ").slice(0, 4).join(" ") %> </span>
+            <span>From: <%=el.time%> </span>
+            <a href="/events/<%=el._id%>" class="btn">More Info</a>
+            
+        </div>
+        <% }) 
+    } %> 
+    
+    </section>
+       
+
+    <a href="/logout">Logout</a>
+
+    <%- include('partials/footer.ejs') %>

@@ -6,6 +6,7 @@ const flash = require('express-flash')
 const MongoStore = require('connect-mongo')(session)
 const mainRoutes = require('./routes/main')
 const eventRoutes = require('./routes/events')
+const itemRoutes = require('./routes/items')
 const connectDB = require('./config/database')
 const methodOverride = require('method-override')
 const logger = require('morgan')
@@ -61,6 +62,7 @@ app.use(flash())
 
 app.use('/', mainRoutes)
 app.use('/events', eventRoutes)
+app.use('/items', itemRoutes)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('Server is running, you better catch it!')

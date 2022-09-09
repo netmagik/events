@@ -21,9 +21,15 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    entryDate: {
+    items: [{name: String, quantity: Number}],
+    createdAt: {
         type: Date,
-        default: Date.now
+        immutable: true,
+        default: () => Date.now()
+    },
+    updatedAt: {
+        type: Date,
+        default: () => Date.now()
     }
 })
 

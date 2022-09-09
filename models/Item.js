@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose
+const Event = require('./Event')
+const User = require('./User')
 
 const ItemSchema = new mongoose.Schema({
     name: {
@@ -10,26 +13,22 @@ const ItemSchema = new mongoose.Schema({
         required: false,
     },
     quantity: {
-        type: INTEGER,
+        type: Number,
+        min: 0,
         required: false,
     },
     needed: {
         type: Boolean,
         default: true,
     },
-    eventId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Event',
-            key: '_id'
-        }
+    event: {
+        type: Schema.Types.ObjectId,
+       required: true,
+       ref: 'Event'
     }, 
-    userId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'User',
-            key: '_id'
-        }
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 

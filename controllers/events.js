@@ -18,7 +18,8 @@ module.exports = {
             } catch (err) {
                 console.log(err)
             }
-        },    
+        },  
+
     // @desc - Create New Event
     createEvent: async (req, res) => {
         try{
@@ -37,18 +38,35 @@ module.exports = {
         }
     },
 
-    // @desc - Show Single Event
+ 
+
+    // // @ desc - Add new Item associated with an event
+    // addItem: async (req, res) => {
+    //         try {
+    //             // const event = await Event.findById(req.params.id)
+    //             await Item.create({
+    //             name: req.body.item,
+    //             description: req.body.description,
+    //             quantity: req.body.quantity,
+    //             event: req.event.id,
+    //             user: req.userId.id
+    //             })
+    //             console.log('Item added')
+    //             res.redirect('/events/show.ejs')
+    //             } catch (err) {
+    //             console.log(err)
+    //         }
+    // },
+
+    // @desc - Show Single Event and its Items
     showSingle: async (req, res) => {
         try {
-            let event = await Event.findById(req.params.id).exec()
-
-            if (!event) {
-                return res.render('error/404')
-            } else {
-                res.render('events/show', {
-                    event
+            const event = await Event.findById(req.params.id)
+            // const item = await Item.find({event: req.params.id}).populate().exec()
+                res.render('events/show.ejs', {
+                    event: event,
+                    // items: req.params.items
                 })
-            }
         } catch (err) {
             console.error(err)
             res.render('error/404')

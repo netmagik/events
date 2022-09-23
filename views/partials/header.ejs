@@ -5,18 +5,106 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/images/favicon-32x32.png"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://kit.fontawesome.com/d6e83434a4.js" crossorigin="anonymous"></script>
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  
     <title>Plan Your Event</title>
 </head>
 <body>
     <!-- Header -->
     <header id="header">
-        <nav id="nav">
+
+<!-- Top Menu Start -->
+<div class="relative bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex items-center justify-between md:justify-start md:space-x-10">
+        <div class="flex justify-start lg:w-0 lg:flex-1">
+          <a href="/">
+            <span class="sr-only">Plan It</span>
+            <img class="h-40 w-auto" src="/images/PlanIt.png" alt="Logo">
+          </a>
+        </div>
+        <div class="-my-2 -mr-2 md:hidden">
+          <button type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+            <span class="sr-only">Open menu</span>
+            <!-- Heroicon name: outline/bars-3 -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <nav class="hidden space-x-10 md:flex">
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Docs</a>
+        </nav>
+
+        <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+          <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Sign in</a>
+          <a href="#" class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign up</a>
+        </div>
+      </div>
+    </div>
+  
+    <!--
+      Mobile menu, show/hide based on mobile menu state.
+  
+      Entering: "duration-200 ease-out"
+        From: "opacity-0 scale-95"
+        To: "opacity-100 scale-100"
+      Leaving: "duration-100 ease-in"
+        From: "opacity-100 scale-100"
+        To: "opacity-0 scale-95"
+    -->
+    <div class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+      <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+        <div class="px-5 pt-5 pb-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <img class="h-8 w-auto" src="/images/PlanIt.png" alt="Plan It">
+            </div>
+            <div class="-mr-2">
+              <button type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <span class="sr-only">Close menu</span>
+                <!-- Heroicon name: outline/x-mark -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        
+        </div>
+        <div class="space-y-6 py-6 px-5">
+          <div class="grid grid-cols-1 gap-y-4 gap-x-8">
+   
+            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Guides</a>
+  
+            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Events</a>
+  
+            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Security</a>
+          </div>
+          <div>
+            <a href="#" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign up</a>
+            <p class="mt-6 text-center text-base font-medium text-gray-500">
+              Existing customer?
+              <a href="#" class="text-indigo-600 hover:text-indigo-500">Sign in</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- <nav id="nav">
             <ul>
                 <li><a href="/">Home</a></li>
                 <% if (!user) { %>
@@ -27,7 +115,7 @@
                     <li><a href="/logout">Logout</a></li>
                 <% } %>
             </ul>
-        </nav>
+        </nav> -->
     </header>
     <div class="justify-content-center">
 

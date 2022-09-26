@@ -15,8 +15,8 @@
     --color-primary-variant: #F4A261;
     --color-secondary: #E76F51;
     --font-color: #fff;
-    --color-light: #E9C46A
-    --alt-font-color: ##000;
+    --color-light: #E9C46A;
+    --alt-font-color: #000;
     --transition: all 400ms ease;
     --container-width-lg: 75%;
     --container-width-md: 86%;
@@ -70,32 +70,34 @@ input.form-control:focus {
 
 .button {
     width: max-content;
-    color: var(--color-primary);
+    font-weight: 500;
+    color: var(--bg-color);
     border-radius: 0.4rem;
     cursor: pointer;
     border: 1px solid var(--color-primary);
     transition: var(--transition);
     padding: 0.5rem 2rem;
+    background-color: var(--color-primary);
 }
 
 .button:hover {
-    background: var(--font-color);
-    color: var(--bg-variant);
+    background-color: var(--color-primary-variant);
+    color: black;
     border-color: transparent;
 }
 
 .button-primary {
-    background: var(--color-primary);
-    color: var(--bg-color);
+    background-color: var(--bg-color);
+    color: var(--font-color);
     padding: 0.5rem 2rem;
     border-radius: 0.4rem;
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--bg-color);
     transition: var(--transition);
     cursor: pointer;
 }
 
 .button-primary:hover {
-    background: var(--color-tertiary);
+    background-color: var(--bg-variant);
     color: var(--font-color);
     border-color: transparent;
 }
@@ -136,3 +138,13 @@ input.form-control:focus {
     text-align: center;
 }
 
+nav {
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.text-highlight {
+    color: var(--bg-variant);
+}

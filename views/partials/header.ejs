@@ -34,7 +34,7 @@
           </a>
         </div>
         <div class="-my-2 -mr-2 md:hidden">
-          <button type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+          <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
             <span class="sr-only">Open menu</span>
             <!-- Heroicon name: outline/bars-3 -->
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -42,68 +42,38 @@
             </svg>
           </button>
         </div>
+        
         <nav class="hidden space-x-10 md:flex">
-          <a href="#" class="text-gray-500 hover:text-gray-900">Pricing</a>
-          <a href="#" class="text-gray-500 hover:text-gray-900">Docs</a>
+          <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
+          <a href="#" class="text-gray-500 hover:text-gray-900">events</a>
+          <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
+          <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
         </nav>
 
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <a href="#" class="button whitespace-nowrap" >Sign in</a>
-          <a href="#" class="button-primary ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent px-4 py-2 shadow-sm">Sign up</a>
+          <a href="#" class="button whitespace-nowrap" >Sign Up</a>
+          <a href="#" class="button-primary ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent px-4 py-2 shadow-sm">Login</a>
         </div>
       </div>
-    </div>
-  
-    <!--
-      Mobile menu, show/hide based on mobile menu state.
-  
-      Entering: "duration-200 ease-out"
-        From: "opacity-0 scale-95"
-        To: "opacity-100 scale-100"
-      Leaving: "duration-100 ease-in"
-        From: "opacity-100 scale-100"
-        To: "opacity-0 scale-95"
-    -->
-    <div class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
-      <div class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-        <div class="px-5 pt-5 pb-6">
-          <div class="flex items-center justify-between">
-            <div>
-              <img class="h-8 w-auto" src="/images/PlanIt.png" alt="Plan It">
-            </div>
-            <div class="-mr-2">
-              <button type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                <span class="sr-only">Close menu</span>
-                <!-- Heroicon name: outline/x-mark -->
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        
-        </div>
-        <div class="space-y-6 py-6 px-5">
-          <div class="grid grid-cols-1 gap-y-4 gap-x-8">
-   
-            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Guides</a>
-  
-            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Events</a>
-  
-            <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">Security</a>
-          </div>
-          <div>
-            <a href="#" class="flex w-full items-center justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm">Sign up</a>
-            <p class="mt-6 text-center text-base font-medium text-gray-500">
-              Existing customer?
-              <a href="#" class="text-indigo-600 hover:text-indigo-500">Sign in</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
+      <!-- Mobile Menu -->
+      <div class="hidden mobile-menu">
+        <div class="text-lg lg:flex-grow">
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            Docs
+          </a>
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            Examples
+          </a>
+          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0">
+            Blog
+          </a>
+        </div>
+      </div>
+
+</div>
+ 
+</div>
         <!-- <nav id="nav">
             <ul>
                 <li><a href="/">Home</a></li>
@@ -116,7 +86,8 @@
                 <% } %>
             </ul>
         </nav> -->
-    </header>
-    <div class="justify-content-center">
+</header>
+
+<div class="justify-content-center">
 
     

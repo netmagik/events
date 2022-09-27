@@ -4,13 +4,13 @@ const eventsController = require('../controllers/events')
 const { ensureAuth } = require('../middleware/auth')
 
 
-router.get('/', ensureAuth, eventsController.getEvents)
-router.get('/add', ensureAuth, eventsController.showAdd)
-router.post('/createEvent', ensureAuth, eventsController.createEvent)
-router.get('/:id', ensureAuth, eventsController.showSingle)
-router.get('/edit/:id', ensureAuth, eventsController.showEdit)
-router.put('/:id', ensureAuth, eventsController.editEvent)
-router.delete('/:id', ensureAuth, eventsController.deleteEvent)
+router.get('/', eventsController.getEvents)
+router.get('/add', eventsController.showAdd)
+router.post('/createEvent', eventsController.createEvent)
+router.get('/:id', eventsController.showSingle)
+router.get('/edit/:id', eventsController.showEdit)
+router.put('/:id', eventsController.editEvent)
+router.delete('/:id', eventsController.deleteEvent)
 
 
 module.exports = router

@@ -1,10 +1,12 @@
 <%- include('../partials/header.ejs') %>
 
-<h1 class="text-center mt-5"><%= event.title %></h1>
-<div class="h2 text-center text-secondary mb-4 border-bottom pb-5">"<%= event.title %>"</div>
-<section class="p-2 mt-5 pt-5 text-center">
-  <div class="container">
-    <div class="row justify-content-center">
+<h1 class="font-medium text-center text-5xl"><%= event.title %></h1>
+
+<div class="font-medium text-center text-2xl">"<%= event.title %>"</div>
+
+<section class="flex justify-center">
+  <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
+    <div class="py-3 px-6 border-b border-gray-300">
         <div>
         <span class="h4 mt-3">Location</span>
           <span class="mx-4"><%= event.location %></span>
@@ -17,27 +19,37 @@
           <span class="h4 mt-1">Start Time:</span>
           <span class="mx-4"><%= event.time %></span>  
         </div>
-        <!-- Show Items -->
+
+
+    <!-- Show Items -->
+    <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
         <h5>Items</h5>
         <ul><% for(let i=0; i < event.items.length; i++) { %>
             <li><%=event.items[i].name %></li>
             <li><%=event.items[i].quantity%></li>
             <% } %>
           </ul>
-    // <!-- Add Items Form -->
-    <form action="/items/item/<%=event._id%>" method="POST" id="add-item">
-      <div>
-      <input type="text" name="name" placeholder="Add item">
-      <label for="name">Item</label>
-      <input type="number" name="quantity">
-      <label for="quantity">Quantity</label>
+    </div>
+
+
+    <!-- Add Items Form -->
+<div class="flex">
+  <form action="/items/item/<%=event._id%>" method="POST" id="add-item">
+      <label class="block" for="name">Item</label>
+      <input type="text" name="name" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1" placeholder="Add item">
+ 
+
+      <label class="block" for="quantity">Quantity</label>
+      <input type="number" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1" name="quantity">
+
       <!-- <input type="text" name="description" placeholder="">
       <label for="description">Item Description</label>
       <input type="number" name="quantity">
       <label for="quantity">Quantity</label> -->
-    </div>
-        <button class="btn" type="submit" >Add</button>
-        </form>
+    <button class="button-primary bg-teal-800 border-teal-800 px-6 py-2 mt-4 rounded-lg" type="submit" >Add</button>
+  </form>
+</div>
+       
     <!-- Edit Event -->
     <a href="/events/edit/<%=event._id%>" class="btn">
         <i class="fas fa-edit"></i>
@@ -51,5 +63,7 @@
     </form>
   </div>
   </div>
-</section>
+  </section>
+
+
 <%- include('../partials/footer.ejs') %>

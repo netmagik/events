@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js}"],
   theme: {
     screens: {
       sm: '480px',
@@ -9,17 +9,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        'bg-color': '#243c5a',
-        'bg-variant': '#2A9D8F',
-        'color-primary': '#E9C46A',
-        'color-primary-variant': '#F4A261',
-        'color-secondary': '#E76F51',
-        'color-primary-variant': '#F4A261',
+        'darkgreen': '#243c5a',
+        'lightgreen': '#2A9D8F',
+        'yellow': '#E9C46A',
+        'orange': '#F4A261',
+        'darkorange': '#E76F51',
+      },
+      fontFamily: {
+        body: ['Poppins']
       },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
   ],
   content: ["./views/**/*.ejs"],
 }

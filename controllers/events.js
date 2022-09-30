@@ -100,6 +100,7 @@ module.exports = {
             new: true,
             runValidators: true
            })
+           console.log(req.body)
            res.redirect('/events')
             }
         catch (err) {

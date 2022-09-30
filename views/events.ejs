@@ -1,14 +1,15 @@
 <%- include('partials/header.ejs') %>
 
+    <div class="flex justify-center items-center gap-4 py-6">
     <h1 class="font-large text-5xl text-center">All Events</h1>
-    <a class="btn" href="events/add">Add New Event</a>
-
+    <a class="btn-cta" href="events/add">+ New Event</a>
+    </div>
     <!-- // Events Section -->
     <div class="flex gap-4 justify-center">
     <% if (eventItems != null) {
         eventItems.forEach( el => { %> 
 
-        <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
+        <div class="card">
             <div class="py-3 px-6 border-b border-gray-300">
                 Posted by ?
             </div>
@@ -23,7 +24,7 @@
                     <p class="text-gray-700 text-base mb-4">
                         Time: <%=el.time%>
                     </p>
-                    <a href="/events/<%=el._id%>" class="mt-3 button-primary">More Info</a>
+                    <a href="/events/<%=el._id%>" class="mt-3 btn">More Info</a>
             </div>
             <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
                 Posted: 2 days ago
@@ -34,6 +35,6 @@
     } %> 
 </div>
 
-<a href="/logout">Logout</a>
+<a class="btn" href="/logout">Logout</a>
 
 <%- include('partials/footer.ejs') %>

@@ -12,71 +12,73 @@
     sizes="32x32"
     href="/images/favicon-32x32.png"
   />
-  <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://kit.fontawesome.com/d6e83434a4.js" crossorigin="anonymous"></script>
   
     <title>Plan Your Event</title>
 </head>
-<body>
+<body class="font-body">
     <!-- Header -->
-    <header id="header">
+  <header id="header">
 
-<!-- Top Menu Start -->
-<div class="relative bg-white">
+      <!-- Top Menu Start -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="flex items-center justify-between md:justify-start md:space-x-10">
+        <!-- Logo -->
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="/">
-            <span class="sr-only">Plan It</span>
-            <img class="h-40 w-auto" src="/images/PlanIt.png" alt="Logo">
+          <span class="sr-only">Plan It</span>
+          <img class="h-40 w-auto" src="/images/PlanIt.png" alt="Logo">
           </a>
         </div>
+
+        <!-- Mobile Menu Hamburger -->
         <div class="-my-2 -mr-2 md:hidden">
-          <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-            <span class="sr-only">Open menu</span>
-            <!-- Heroicon name: outline/bars-3 -->
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+          <button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-900 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-darkgreen" aria-expanded="false">
+          <span class="sr-only">Open menu</span>
+          <!-- Heroicon name: outline/bars-3 -->
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
           </button>
         </div>
-        
+              
+          <!-- Large and Medium screens menu -->
         <nav class="hidden space-x-10 md:flex">
-          <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
-          <a href="#" class="text-gray-500 hover:text-gray-900">events</a>
+          <a href="/" class="text-gray-500 hover:text-gray-900">home</a>
+          <a href="/events" class="text-gray-500 hover:text-gray-900">events</a>
           <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
           <a href="#" class="text-gray-500 hover:text-gray-900">home</a>
         </nav>
 
+        <!-- CTA buttons -->
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <a href="#" class="button whitespace-nowrap" >Sign Up</a>
-          <a href="#" class="button-primary ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent px-4 py-2 shadow-sm">Login</a>
+          <a href="/signup" class="btn-cta whitespace-nowrap" >Sign Up</a>
+          <a href="/login" class="btn ml-8 inline-flex items-center justify-center whitespace-nowrap shadow-sm">Login</a>
         </div>
+            
       </div>
 
       <!-- Mobile Menu -->
       <div class="hidden mobile-menu">
         <div class="text-lg lg:flex-grow">
-          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
-            Docs
+          <a href="/" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            Home
           </a>
-          <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
-            Examples
+          <a href="/events" class="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            Events
           </a>
           <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0">
             Blog
           </a>
+          <a href="/signup" class="btn-cta block mt-4 text-center" >Sign Up</a>
+          <a href="/login" class="btn block text-center mt-4 shadow-sm">Login</a>
         </div>
       </div>
 
-</div>
- 
-</div>
-       
-</header>
+  </div>
+  </header>
 
-<div class="justify-content-center">
+  <main class="bg-gray-100 p-8">
 
     

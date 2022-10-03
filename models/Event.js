@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {ObjectId} = mongoose.Schema.Types
 
 const EventSchema = new mongoose.Schema({
     title: {
@@ -18,19 +19,13 @@ const EventSchema = new mongoose.Schema({
         required: true,
     },
     userId: {
-        type: String,
-        required: true,
+        type: ObjectId,
+        ref: "User",
     },
-    items: [{name: String, quantity: Number}],
     createdAt: {
         type: Date,
-        immutable: true,
-        default: () => Date.now()
-    },
-    updatedAt: {
-        type: Date,
-        default: () => Date.now()
-    }
+        default: Date.now,
+      },
 })
 
 module.exports = mongoose.model('Event', EventSchema)

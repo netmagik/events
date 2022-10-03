@@ -19,7 +19,7 @@
                         Location: <%=el.location%> 
                     </p>
                     <p class="text-gray-700 text-base mb-4">
-                        Date: <%= new Date(el.date).toUTCString().split(" ").slice(0, 4).join(" ") %> 
+                        <%= new Date(el.date).toUTCString().split(" ").slice(0, 4).join(" ") %> 
                     </p>
                     <p class="text-gray-700 text-base mb-4">
                         Time: <%=el.time%>

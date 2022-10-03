@@ -1,11 +1,25 @@
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
+const Event = require('./Event')
 
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   entryDate: { type: Date, default: Date.now},
   password: String
+})
+
+// Error checking before deleting an event
+UserSchema.pre('remove', function(next) {
+  Event.find({user: this.id}, (err, events) => {
+    if(err) {
+      next(err)
+    } else if (events.length > 0) {
+      next (new Error('This user has events still'))
+    } else {
+      next()
+    }
+  })
 })
 
 

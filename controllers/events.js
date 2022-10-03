@@ -1,4 +1,6 @@
 const Event = require('../models/Event')
+const Item = require('../models/Item')
+const User = require('../models/User')
 
 module.exports = {
     // @desc - Show Events on Home Page
@@ -38,36 +40,19 @@ module.exports = {
         }
     },
 
- 
-
-    // // @ desc - Add new Item associated with an event
-    // addItem: async (req, res) => {
-    //         try {
-    //             // const event = await Event.findById(req.params.id)
-    //             await Item.create({
-    //             name: req.body.item,
-    //             description: req.body.description,
-    //             quantity: req.body.quantity,
-    //             event: req.event.id,
-    //             user: req.userId.id
-    //             })
-    //             console.log('Item added')
-    //             res.redirect('/events/show.ejs')
-    //             } catch (err) {
-    //             console.log(err)
-    //         }
-    // },
-
     // @desc - Show Single Event and its Items
     showSingle: async (req, res) => {
         try {
             const event = await Event.findById(req.params.id)
-            // const item = await Item.find({event: req.params.id}).populate().exec()
-                res.render('events/show.ejs', {
+            const items = await Item.find({event: req.params.id})
+            res.render('events/show.ejs', {
                     event: event,
-                    // items: req.params.items
+                    items: items,
+                    creator: req.params.userId,
+                    user: req.user.id
                 })
-        } catch (err) {
+                console.log(`req.user.id ${req.user.id} and event.userId is ${event.userId}`)
+           } catch (err) {
             console.error(err)
             res.render('error/404')
         }
@@ -76,7 +61,7 @@ module.exports = {
     // @desc - Show Edit Event
     showEdit: async (req, res) => {
         try {
-            let event = await Event.findOne({
+            let event = await Event.findById({
                 _id: req.params.id
             }).lean()
 
@@ -84,7 +69,7 @@ module.exports = {
                 return res.render('error/404')
             } else {
                 res.render('events/edit', {
-                    event,
+                    event: event,
                 })
             }
         } catch (err) {
@@ -94,16 +79,18 @@ module.exports = {
 
     // @desc - Edit Event
     editEvent: async (req, res) => {
-    
-       try {
-           await Event.findOneAndUpdate({_id: req.params.id}, req.body, {
-            new: true,
-            runValidators: true
-           })
-           console.log(req.body)
-           res.redirect('/events')
-            }
-        catch (err) {
+        let event
+        try {
+            event = await Event.findById(req.params.id)
+                event.title = req.body.eventItem
+                event.date = req.body.date
+                event.time = req.body.time
+                event.location = req.body.location
+             
+            await event.save()
+            res.redirect(`/events/${req.params.id}`)
+           }
+           catch (err) {
             console.error(err)
             return res.render('error/500')
         }

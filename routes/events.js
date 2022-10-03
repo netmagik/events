@@ -8,8 +8,8 @@ router.get('/', eventsController.getEvents)
 router.get('/add', eventsController.showAdd)
 router.post('/createEvent', eventsController.createEvent)
 router.get('/:id', eventsController.showSingle)
-router.get('/edit/:id', eventsController.showEdit)
-router.put('/:id', eventsController.editEvent)
+router.get('/:id/edit', eventsController.showEdit)
+router.put('/:id', ensureAuth, eventsController.editEvent)
 router.delete('/:id', eventsController.deleteEvent)
 
 

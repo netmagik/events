@@ -4,7 +4,7 @@
     <h1 class="font-medium text-center leading-tight text-5xl mt-0 mb-2">Edit Event</h1>
     <div class="flex items-center justify-center bg-gray-100">
         <div class="px-8 py-6 my-12 text-left bg-white shadow-lg">
-            <form action="/events/<%=event._id%>?_method=PUT" method="POST">
+            <form action="/events/<%= event._id%>?_method=PUT" method="POST">
                 <!-- <input type="hidden" name="_method" value="PUT"> -->
                 <div class="mt-4">
                     <div>
@@ -61,8 +61,8 @@
                                 </div>
 
                     <div class="flex items-baseline justify-center">
-                        <button class="btn mr-4">Submit</button>
-                        <a href="/events" class="btn-cta">Cancel</a>
+                        <button type="submit" class="btn mr-4">Submit</button>
+                        <a href="/events/<%= event._id%>" class="btn-cta">Cancel</a>
                     </div>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js}",  "./node_modules/flowbite/**/*.js"],
   theme: {
     screens: {
       sm: '480px',
@@ -21,6 +21,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('flowbite/plugin')
   ],
   content: ["./views/**/*.ejs"],
 }

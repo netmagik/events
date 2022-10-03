@@ -11,17 +11,3 @@ const modalButton = document.querySelector('#openEdit')
 const modal = document.querySelector('.modal')
 const submitButton = document.querySelector('#submit')
 
-// Add event Listener
-modalButton.addEventListener('click', () => {
-	modal.style.display = "block";
-})
-// Close Modal
-submitButton.onclick = function() {
-    modal.style.display = "none";
-    }
-// Close modal 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}

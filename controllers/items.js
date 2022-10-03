@@ -37,8 +37,9 @@ deleteItem: async (req, res) =>  {
 
 // Edit Item 
 editItem: async (req, res) => {
+    let item
     try {
-        const item = await Item.findById(req.params.itemid)
+        item = await Item.findById(req.params.itemid)
 
         if (!item) {
             return res.render('error/404')
@@ -47,7 +48,7 @@ editItem: async (req, res) => {
         item.description = req.body.description,
         item.quantity = req.body.quantity,
         await item.save()
-        res.redirect(`/events/${req.params.id}`)
+        res.redirect(`/events/${req.params.eventid}`)
     } catch (error) {
         console.log(error)
     }

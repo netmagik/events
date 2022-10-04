@@ -9,7 +9,7 @@ Tech used: HTML/CSS, TailwindCSS, EJS, JavaScript, Node.js, Express, MongoDB, Pa
 ## Inspiration:
 My kid's sports team has events and parents help bring items and volunteer. There seemed to be a lack of easy to use tools with a clean UI. 
 A lot of times parents create a text message with a list of things needed for the event and event information and have other respond to it with what they can bring or volunteer.
-I thought it be nice to have an App to keep it organized.
+I thought it would be nice to have an App to keep it organized.
 
 ## Optimizations:
 - Customize volunteer opportunities

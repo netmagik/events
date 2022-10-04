@@ -18,3 +18,4 @@ I thought it be nice to have an App to keep it organized.
 - Set up reminders before the event
 - An option to find an event
 
+<img src="https://user-images.githubusercontent.com/3833560/193921402-ed81f456-b2ee-4d64-bf20-3c9f9b685b1f.png">

@@ -16,3 +16,5 @@ I thought it be nice to have an App to keep it organized.
 - Create an option to print list of items
 - Send an invite to people invited to the event
 - Set up reminders before the event
+- An option to find an event
+

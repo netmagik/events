@@ -1,4 +1,4 @@
-<p align="center><img src="https://user-images.githubusercontent.com/3833560/193928448-06b3917a-28f3-4b99-ab78-21083e1df086.png" style="height: 100px">
+<p align="center"><img style="height: 150px" src="https://user-images.githubusercontent.com/3833560/193929681-56c13cb2-0b02-47f7-a328-6d588360f9bf.png">
 </p>
 
 # Plan It

@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-const { Schema } = mongoose
-const Event = require('./Event')
-const User = require('./User')
+const {ObjectId} = mongoose.Schema.Types
 
 const ItemSchema = new mongoose.Schema({
     name: {
@@ -22,12 +20,12 @@ const ItemSchema = new mongoose.Schema({
         default: true,
     },
     event: {
-        type: Schema.Types.ObjectId,
-       required: true,
-       ref: 'Event'
+        type: ObjectId,
+        required: true,
+        ref: 'Event'
     }, 
     user: {
-        type: Schema.Types.ObjectId,
+        type: ObjectId,
         ref: 'User'
     }
 })

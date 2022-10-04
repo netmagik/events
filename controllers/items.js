@@ -1,37 +1,56 @@
 const Event = require('../models/Event')
 const User = require('../models/User')
+const Item = require('../models/Item')
 
 module.exports = {
-    // Load Items
-    getItems: async (req, res) => {
-        try {
-            const event = await Event.findById(req.params.id)
-            const user = await User.findById(event.userId)
-            console.log(user)
-            res.render('events/show.ejs', {
-                event: event, user: req.user, 
-            })
-        } catch (error) {
-            console.log(error)
-        }
-    }, 
-
     // Add Items
     addItem: async (req, res) => {
         try {
-            console.log(req.user, req.body.name)
-            const item = {name: req.body.name, quantity: req.body.quantity}
-            await Event.findOneAndUpdate(
-                {_id: req.params.id},
+            const eventCreator = await User.findById(req.user.id)
+            await Item.create(
                 {
-                    $push: {items: item},
-                },
-                {new: true}
+                    name: req.body.name,
+                    description: req.body.description,
+                    quantity: req.body.quantity,
+                    event: req.params.id,
+                    createdBy: eventCreator.userName,
+                }
             )
-            console.log('item added')
-            res.redirect(`/events/${req.params.id}`)
+           
+         res.redirect(`/events/${req.params.id}`)
         } catch (error) {
             console.log(error)
         }
 },
+
+// Delete Item
+deleteItem: async (req, res) =>  {
+    try {
+        await Item.deleteOne({
+            _id: req.params.itemid
+        })
+        res.redirect(`events/${req.params.eventid}`)
+    } catch (error) {
+        console.log(error)
+    }
+},
+
+// Edit Item 
+editItem: async (req, res) => {
+    let item
+    try {
+        item = await Item.findById(req.params.itemid)
+
+        if (!item) {
+            return res.render('error/404')
+        }
+        item.name = req.body.name;
+        item.description = req.body.description,
+        item.quantity = req.body.quantity,
+        await item.save()
+        res.redirect(`/events/${req.params.eventid}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
 }

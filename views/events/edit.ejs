@@ -1,40 +1,74 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Event Edit</h1>
-<div class="container">
-    <form action="/events/<%=event._id%>" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-            <div class="input-field">
-                <h5>Event Title</h5>
-                <input type="text" id="title" class="form-control" name="title" value="<%=event.title%>">
-                <label for="title">Title</label>
-            </div>
+<section>
+    <h1 class="font-medium text-center leading-tight text-5xl mt-0 mb-2">Edit Event</h1>
+    <div class="flex items-center justify-center bg-gray-100">
+        <div class="px-8 py-6 my-12 text-left bg-white shadow-lg">
+            <form action="/events/<%= event._id%>?_method=PUT" method="POST">
+                <!-- <input type="hidden" name="_method" value="PUT"> -->
+                <div class="mt-4">
+                    <div>
+                        <label class="block" for="eventItem">Event Name:<label>
+                            <input
+                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1"
+                                type="text"
+                                id="title"
+                                aria-describedby="eventItem"
+                                name="eventItem"
+                                value="<%=event.title%>"
+                                required
+                            />
+                    </div>
+                    <div class="mt-4">
+                        <div>
+                            <label class="block" for="date">Event Date:<label>
+                                <input
+                                    class="datepicker w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1"
+                                    type="date"
+                                    id="date"
+                                    aria-describedby="date"
+                                    name="date"
+                                    value="<%=new Date(event.date).toISOString().split('T')[0]%>"
+                                    required
+                                />
+                        </div>
+                        <div class="mt-4">
+                            <div>
+                                <label class="block" for="time">Time:<label>
+                                    <input
+                                        class="timepicker w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1"
+                                        type="time"
+                                        id="time"
+                                        aria-describedby="time"
+                                        name="time"
+                                        value="<%=event.time%>"
+                                        required
+                                    />
+                            </div>
 
-            <div class="input-field">
-                <h5>Location</h5>
-                <input type="text" id="location" class="form-control" name="location" value="<%=event.location%>">
-                <label for="location">Location</label>
-            </div>
-            
-            <div>
-                <h5>Event Date</h5>
-                <input type="date" class="form-control date-picker" id="date" name="date" value="<%=new Date(event.date).toISOString().split('T')[0]%>">
-                <label for="date">Event Date</label>
-            </div>
+                            <div class="mt-4">
+                                <div>
+                                    <label class="block" for="location">Location of the Event:<label>
+                                        <input
+                                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1"
+                                            type="text"
+                                            id="location"
+                                            aria-describedby="location"
+                                            name="location"
+                                            value="<%=event.location%>"
+                                            required
+                                        />
+                                </div>
 
-            <div>
-                <h5>Event Time</h5>
-                <input type="time" class="form-control" id="time" name="time" value="<%=event.time%>">
-                <label for="time" class="form-label">Time of the Event</label>
-            </div>
-
-        <div>
-            <input type="submit" value="Save" class="btn">
-            <a href="/events" class="btn orange">Cancel</a>
+                    <div class="flex items-baseline justify-center">
+                        <button type="submit" class="btn mr-4">Submit</button>
+                        <a href="/events/<%= event._id%>" class="btn-cta">Cancel</a>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 
-</div>
-
+</section>
 
 <%- include('../partials/footer.ejs') %>

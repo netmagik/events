@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'flowbite';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+    @apply rounded shadow-md py-5 overflow-hidden text-center bg-white hover:shadow-lg
+}
+
+.btn {
+    @apply transition ease-out duration-300 rounded-lg py-2 px-3 text-sm font-semibold cursor-pointer tracking-wider uppercase bg-darkgreen text-white hover:bg-lightgreen
+}
+
+.btn-cta {
+    @apply transition ease-out duration-300 rounded-lg py-2 px-3 text-sm font-semibold cursor-pointer tracking-wider uppercase bg-yellow text-black hover:bg-orange
+}
+
+/* :root {
+    --bg-color: #264653;
+    --bg-variant: #2A9D8F;
+    --color-primary: #E9C46A;
+    --color-primary-variant: #F4A261;
+    --color-secondary: #E76F51;
+    --font-color: #fff;
+    --color-light: #E9C46A;
+    --alt-font-color: #000;
+    --transition: all 400ms ease;
+    --container-width-lg: 75%;
+    --container-width-md: 86%;
+    --container-width-sm: 90%;
+    --radius: 7px;
+} */
+
+
+/********** CTA ************/
+
+.cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+#footer {
+    padding: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+}

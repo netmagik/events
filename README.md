@@ -1,3 +1,6 @@
+<p align="center><img src="https://user-images.githubusercontent.com/3833560/193928448-06b3917a-28f3-4b99-ab78-21083e1df086.png" style="height: 100px">
+</p>
+
 # Plan It
 Full-stack app for anyone to plan an event, invite others to help with planning, 
 such bring items to the event, or volunteer at the event. Users can login to the account, create an event with event location, date, time. 

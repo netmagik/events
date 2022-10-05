@@ -10,9 +10,8 @@ They can add items for people to bring to the event, or ask for help with volunt
 Tech used: HTML/CSS, TailwindCSS, EJS, JavaScript, Node.js, Express, MongoDB, Passport for Authentication
 
 ## Inspiration:
-My kid's sports team has events and parents help bring items and volunteer. There seemed to be a lack of easy to use tools with a clean UI. 
-A lot of times parents create a text message with a list of things needed for the event and event information and have other respond to it with what they can bring or volunteer.
-I thought it would be nice to have an App to keep it organized.
+My kid's school has a lot of events and parents help bring items and volunteer. There seemed to be a lack of easy to use tools with a clean UI. 
+A lot of times parents create a text message with a list of things needed for the event and have others respond to it with what they can bring or volunteer. PlanIt App will make it easier to plan an event, organize all in one place and provide a great user experience.
 
 ## Optimizations:
 - Customize volunteer opportunities

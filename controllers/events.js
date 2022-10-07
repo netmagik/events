@@ -7,8 +7,9 @@ module.exports = {
     // @desc - Show Events on Home Page
     getEvents: async (req, res)=> {
         try {
+            const creator = await User.findById(req.user.id)
             const eventItems = await Event.find({userId:req.user.id})
-            res.render('events.ejs', {eventItems: eventItems, user: req.user})
+            res.render('events.ejs', {eventItems: eventItems, creator: creator, user: req.user})
         } catch (err) {
             console.error(err)
             res.render('error/500')

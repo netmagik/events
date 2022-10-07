@@ -20,9 +20,12 @@
           <span class="h4 mt-1">Start Time:</span>
           <span class="mx-4"><%= event.time %></span>  
         </div>
+        <div class="py-3 px-6 border-b border-gray-300 text-gray-600">
+          Days Left: <span class="font-bold"><%= Math.ceil(((event.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) %></span>
+        </div>
 
             <!-- Edit Event -->
-        <div class="flex justify-center">
+        <div class="flex mt-3 justify-center">
           <a href="/events/<%=event._id%>/edit" class="btn mr-3">
               <i class="fas fa-edit"></i>
           </a>

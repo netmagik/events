@@ -11,7 +11,7 @@
 
         <div class="card">
             <div class="py-3 px-6 border-b border-gray-300">
-                Posted by ?
+                Posted by <%=creator.email %>
             </div>
             <div class="p-6">
                 <h5 class="text-gray-900 text-xl font-medium mb-2"><%=el.title%></h5>
@@ -27,7 +27,7 @@
                     <a href="/events/<%=el._id%>" class="mt-3 btn">More Info</a>
             </div>
             <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
-                Posted: 2 days ago
+                Days Left: <span class="font-bold"><%= Math.ceil(((el.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) %></span>
             </div>
         </div>
 

@@ -15,10 +15,21 @@ module.exports = {
                     event: req.params.id,
                 }
             )
-           console.log(req.params.email)
          res.redirect(`/events/${req.params.id}`)
         } catch (error) {
             console.log(error)
         }
 },
+
+// Delete Guest
+    deleteGuest: async (req, res) => {
+        try {
+            await Guest.deleteOne({
+                _id: req.params.guestid
+            })
+            res.redirect(`/events/${req.params.eventid}`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

@@ -67,10 +67,22 @@
 
          <!-- Show Invited Guests -->
          <h3 class="py-6 font-medium text-center text-2xl">Invited Guest List:</h3>
-         <ul>
-          <% if (guests != null) {
-            guests.forEach( guest => { %> 
-          <li><%=guest.email %></li>
+            <% if (guests != null) {
+              guests.forEach( guest => { %> 
+            <div class="flex justify-center content-center border-b-2 ">
+              <div class="p-2">
+              <%=guest.email %>
+              </div>
+              <div class="mt-1">
+                <!-- If the User logged in is Event Creator show delete buttons -->
+              <% if(event.userId == user) { %>
+                <form action="/guests/deleteGuest/<%=event.id%>/<%=guest.id %>?_method=DELETE" method="POST">
+                  <button class="fa fa-times p-2 cursor-pointer text-red-700 font-bold" type="submit"></button>
+                </form>
+              </div>
+            <% } %>
+             
+            </div>
             <% }) 
           } %> 
          </ul>

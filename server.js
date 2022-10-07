@@ -11,6 +11,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const eventRoutes = require('./routes/events')
 const itemRoutes = require('./routes/items')
+const guestRoutes = require('./routes/guests')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -55,6 +56,7 @@ app.use(methodOverride("_method"));
 app.use('/', mainRoutes)
 app.use('/events', eventRoutes)
 app.use('/items', itemRoutes)
+app.use('/guests', guestRoutes)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('Server is running, you better catch it!')

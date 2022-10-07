@@ -1,60 +1,95 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="block rounded-lg lg:w-2/4 text-center container mx-auto p-4">
-  <!-- Display Event Information -->
-<div class="py-3 px-6 border-b border-gray-300">
-    <h1 class="my-5 font-medium text-center text-5xl"><%= event.title %></h1>
-    <div>
-      <span class="h4 mt-3">Location: </span>
-      <span class="mx-4"><%= event.location %></span>
-    </div>
-    <div>
-      <span class="mx-4"><%= new Date(event.date).toUTCString().split(" ").slice(0, 4).join(" ") %></span>  
-    </div>
-    <div>
-      <span class="h4 mt-1">Start Time:</span>
-      <span class="mx-4"><%= event.time %></span>  
-    </div>
+<div class="max-w-8xl block rounded-lg text-center container mx-auto p-4">
 
-        <!-- Edit Event -->
-    <div class="flex justify-center">
-      <a href="/events/<%=event._id%>/edit" class="btn mr-3">
-          <i class="fas fa-edit"></i>
-      </a>
-      <!-- Delete Event -->
-      <form action="/events/<%=event._id%>?_method=DELETE" method="POST" id="delete-form">
-          <!-- <input type="hidden" name="_method" value="DELETE"> -->
-          <button onClick="return confirm('Are you sure you want to delete this event?')" class="btn" type="submit">
-              <i class="fas fa-trash"></i>
-          </button>
-      </form>
+  <div class="grid md:grid-cols-3 gap-4">
+    <!-- Display Event Information -->
+    <div class="md:col-span-2 px-6 border-b border-gray-300">
+        <h1 class="my-5 font-medium text-center text-5xl"><%= event.title %></h1>
+        <div>
+          <span class="h4 mt-3">Location: </span>
+          <span class="mx-4"><%= event.location %></span>
+        </div>
+        <div>
+          <span class="mx-4"><%= new Date(event.date).toUTCString().split(" ").slice(0, 4).join(" ") %></span>  
+        </div>
+        <div>
+          <span class="h4 mt-1">Start Time:</span>
+          <span class="mx-4"><%= event.time %></span>  
+        </div>
+
+            <!-- Edit Event -->
+        <div class="flex justify-center">
+          <a href="/events/<%=event._id%>/edit" class="btn mr-3">
+              <i class="fas fa-edit"></i>
+          </a>
+          <!-- Delete Event -->
+          <form action="/events/<%=event._id%>?_method=DELETE" method="POST" id="delete-form">
+              <!-- <input type="hidden" name="_method" value="DELETE"> -->
+              <button onClick="return confirm('Are you sure you want to delete this event?')" class="btn" type="submit">
+                  <i class="fas fa-trash"></i>
+              </button>
+          </form>
+        </div>
     </div>
-</div>
 
 
       <!-- Add Items Form -->
-  <div class="block p-4 card">
-    <h3 class="py-6 font-medium text-center text-2xl">Add Items</h3>
-      <form action="/items/item/<%=event._id%>" method="POST" id="add-item">
-        <div class="lg:flex lg:justify-center lg:items-center">
-        <div class="relative z-0 mr-6 mg-3 w-full group">
-          <input type="name" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Item Name</label>
-      </div>
-        <div class="relative z-0 mr-6 mb-3 w-full group">
-          <input type="description" name="description" id="description" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="description" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Description</label>
-      </div>
-      <div class="relative z-0 mr-6 mb-3 w-full group">
-        <input type="number" name="quantity" id="quantity" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="quantity" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quantity</label>
-    </div>
+    <div class="block p-4 card">
+      <h3 class="py-6 font-medium text-center text-2xl">Add Items</h3>
+        <form action="/items/item/<%=event._id%>" method="POST" id="add-item">
+          <div class="relative z-0 mr-6 mg-3 w-full group">
+            <input type="name" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer" placeholder=" " required />
+            <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Item Name</label>
+          </div>
+          <div class="relative z-0 mr-6 mb-3 w-full group">
+            <input type="description" name="description" id="description" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer" placeholder=" " required />
+            <label for="description" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Description</label>
+          </div>
+          <div class="relative z-0 mr-6 mb-3 w-full group">
+          <input type="number" name="quantity" id="quantity" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer" placeholder=" " required />
+          <label for="quantity" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quantity</label>
+          </div>
+          <button class="btn" type="submit" >Add</button>
+        </form>
+    </div>   
+    
+    <!-- Add Guests Form -->
+    <div class="block p-4 card">
+      <h3 class="py-6 font-medium text-center text-2xl">Invite Guests</h3>
+        <form action="/guests/inviteGuest/<%=event._id%>" method="POST" id="guests">
+          <div class="relative z-0 mr-6 mg-3 w-full group">
+            <input type="email" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 peer" placeholder=" " required />
+            <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+          </div>
+          <button class="btn my-3" type="submit" >Add</button>
+        </form>
 
-        <button class="btn" type="submit" >Add</button>
-      </div>
-        </div>
-      </form>
+         <!-- Show Invited Guests -->
+         <h3 class="py-6 font-medium text-center text-2xl">Invited Guest List:</h3>
+            <% if (guests != null) {
+              guests.forEach( guest => { %> 
+            <div class="flex justify-center content-center border-b-2 ">
+              <div class="p-2">
+              <%=guest.email %>
+              </div>
+              <div class="mt-1">
+                <!-- If the User logged in is Event Creator show delete buttons -->
+              <% if(event.userId == user) { %>
+                <form action="/guests/deleteGuest/<%=event.id%>/<%=guest.id %>?_method=DELETE" method="POST">
+                  <button class="fa fa-times p-2 cursor-pointer text-red-700 font-bold" type="submit"></button>
+                </form>
+              </div>
+            <% } %>
+             
+            </div>
+            <% }) 
+          } %> 
+         </ul>
+    </div> 
+ 
   </div>
+</div>
 
       
 <!-- DISPLAY Items -->  

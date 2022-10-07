@@ -1,6 +1,7 @@
 const Event = require('../models/Event')
 const Item = require('../models/Item')
 const User = require('../models/User')
+const Guest = require('../models/Guest')
 
 module.exports = {
     // @desc - Show Events on Home Page
@@ -45,13 +46,15 @@ module.exports = {
         try {
             const event = await Event.findById(req.params.id)
             const items = await Item.find({event: req.params.id})
+            const guests = await Guest.find({event: req.params.id})
             res.render('events/show.ejs', {
                     event: event,
                     items: items,
                     creator: req.params.userId,
-                    user: req.user.id
+                    user: req.user.id,
+                    guests: guests
                 })
-                console.log(`req.user.id ${req.user.id} and event.userId is ${event.userId}`)
+                // console.log(`req.user.id ${req.user.id} and event.userId is ${event.userId}`)
            } catch (err) {
             console.error(err)
             res.render('error/404')

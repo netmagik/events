@@ -10,7 +10,6 @@ module.exports = {
             const creator = await User.findById(req.user.id)
             const eventItems = await Event.find({userId:req.user.id})
             res.render('events.ejs', {eventItems: eventItems, creator: creator, user: req.user})
-            console.log(creator)
         } catch (err) {
             console.error(err)
             res.render('error/500')
@@ -35,7 +34,6 @@ module.exports = {
                 date: req.body.date,
                 userId: req.user.id
             })
-            console.log('Event has been added!')
             res.redirect('/events')
         }catch(err){
             console.log(err)

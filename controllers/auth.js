@@ -6,9 +6,9 @@ const User = require('../models/User')
     if (req.user) {
       return res.redirect('/events')
     }
-    console.log(req.user)
     res.render('login', {
-      title: 'Login'
+      title: 'Login',
+      user: req.user
     })
   }
   
@@ -58,7 +58,8 @@ const User = require('../models/User')
       return res.redirect('/events')
     }
     res.render('signup', {
-      title: 'Signup'
+      title: 'Signup',
+      user: req.user
     })
   }
   

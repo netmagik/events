@@ -1,9 +1,14 @@
 <%- include('partials/header.ejs') %>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
+<% if (locals.messages.errors) { %>
+    <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+    <% }) %>    
+<% } %>
+<% if (locals.messages.info) { %>
+    <% messages.info.forEach( el => { %>
+        <div class="alert alert-info"><%= el.msg %></div>
+    <% }) %>    
+<% } %>
 
     <section>
     <div class="flex items-center justify-center bg-gray-100">
@@ -12,13 +17,13 @@
             <form action="/signup" method="POST">
                 <div class="mt-4">
                     <div>
-                        <label class="block" for="username">Username<label>
+                        <label class="block" for="userName">Username<label>
                             <input
                                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1"
                                 type="text"
-                                id="username"
-                                aria-describedby="username"
-                                name="username"
+                                id="userName"
+                                aria-describedby="userName"
+                                name="userName"
                                 required
                             />
                     </div>

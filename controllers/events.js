@@ -9,7 +9,9 @@ module.exports = {
         try {
             const creator = await User.findById(req.user.id)
             const eventItems = await Event.find({userId:req.user.id})
-            res.render('events.ejs', {eventItems: eventItems, creator: creator, user: req.user})
+            const guest = await Guest.find({email:req.user.email})
+            res.render('events.ejs', {eventItems: eventItems, creator: creator, guest: guest, user: req.user})
+            console.log(guest)
         } catch (err) {
             console.error(err)
             res.render('error/500')
@@ -18,7 +20,7 @@ module.exports = {
         // @desc - Show Add Page
         showAdd: (req,res) => {
             try {
-                res.render('events/add')
+                res.render('events/add', {user: req.user})
             } catch (err) {
                 console.log(err)
             }
@@ -51,7 +53,7 @@ module.exports = {
                     event: event,
                     items: items,
                     creator: req.params.userId,
-                    user: req.user.id,
+                    user: req.user,
                     guests: guests
                 })
                 // console.log(`req.user.id ${req.user.id} and event.userId is ${event.userId}`)

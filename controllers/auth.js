@@ -90,6 +90,7 @@ const User = require('../models/User')
         req.flash('errors', { msg: 'Account with that email address or username already exists.' })
         return res.redirect('../signup')
       }
+  
       user.save((err) => {
         if (err) { return next(err) }
         req.logIn(user, (err) => {

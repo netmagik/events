@@ -9,9 +9,7 @@ module.exports = {
         try {
             const creator = await User.findById(req.user.id)
             const eventItems = await Event.find({userId:req.user.id})
-            const guest = await Guest.find({email:req.user.email})
-            res.render('events.ejs', {eventItems: eventItems, creator: creator, guest: guest, user: req.user})
-            console.log(guest)
+            res.render('events.ejs', {eventItems: eventItems, creator: creator, user: req.user})
         } catch (err) {
             console.error(err)
             res.render('error/500')
@@ -48,15 +46,14 @@ module.exports = {
         try {
             const event = await Event.findById(req.params.id)
             const items = await Item.find({event: req.params.id})
-            const guests = await Guest.find({event: req.params.id})
+            
             res.render('events/show.ejs', {
                     event: event,
                     items: items,
                     creator: req.params.userId,
                     user: req.user,
-                    guests: guests
+                    guests: event.guests
                 })
-                // console.log(`req.user.id ${req.user.id} and event.userId is ${event.userId}`)
            } catch (err) {
             console.error(err)
             res.render('error/404')
@@ -111,6 +108,44 @@ module.exports = {
             console.error(err)
             return res.render('error/500')
         }
+    },
+     // Invite Guest
+     inviteGuest: async (req, res) => {
+        try {
+            await Event.findOneAndUpdate(
+                {
+                    _id: req.params.id,
+                },
+                {
+                    $push: { guests: req.body.email}
+                },
+                {
+                    new: true
+                }
+            )
+         res.redirect(`/events/${req.params.id}`)
+        } catch (error) {
+            console.log(error)
+        }
+},
+
+    // Delete Guest
+    deleteGuest: async (req, res) => {
+        try {
+            await Event.findOneAndUpdate(
+                {
+                    _id: req.params.id,
+                },
+                {
+                    $pull: {guests: req.params.email}
+                },
+                {
+                    new: true
+                }
+            )
+            res.redirect(`/events/${req.params.id}`)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
-

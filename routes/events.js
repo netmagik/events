@@ -11,6 +11,8 @@ router.get('/:id', eventsController.showSingle)
 router.get('/:id/edit', eventsController.showEdit)
 router.put('/:id', ensureAuth, eventsController.editEvent)
 router.delete('/:id', eventsController.deleteEvent)
+router.put('/inviteGuest/:id', eventsController.inviteGuest)
+router.delete('/deleteGuest/:id/:email', eventsController.deleteGuest)
 
 
 module.exports = router

@@ -22,6 +22,7 @@ const EventSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User",
     },
+    guests: [{type: String}],
     createdAt: {
         type: Date,
         default: Date.now,

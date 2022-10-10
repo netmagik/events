@@ -6,15 +6,8 @@ const GuestSchema = new mongoose.Schema({
         type: String, 
         unique: true 
     },
-    event: {
-        type: ObjectId,
-        required: true,
-        ref: 'Event'
-    }, 
-    item: {
-        type: ObjectId,
-        ref: 'Item'
-    },
+    event: [{type: ObjectId, required: true, ref:"Event"}],
+    item: [{type: ObjectId, ref:"Item"}]
     
 })
 

@@ -74,12 +74,16 @@ module.exports = {
             let event = await Event.findById({
                 _id: req.params.id
             }).lean()
-
+            let user = await User.findById({
+                _id: req.params.id
+            })
+            console.log(user)
             if (!event) {
                 return res.render('error/404')
             } else {
                 res.render('events/edit', {
                     event: event,
+                    user: user
                 })
             }
         } catch (err) {

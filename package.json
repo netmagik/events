@@ -4,8 +4,8 @@
   "description": "Sign up for events",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "dev": "NODE_ENV=development nodemon app",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build-css": "tailwind build src/styles.css -o public/css/style.css"
   },
   "author": "Irina Blumenfeld",

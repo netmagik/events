@@ -58,8 +58,8 @@ app.use('/events', eventRoutes)
 app.use('/items', itemRoutes)
 app.use('/guests', guestRoutes)
 
-const port = '$PORT';
+const PORT = 2121;
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`)
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server is running on port: ${PORT}`)
 })

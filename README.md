@@ -2,6 +2,9 @@
 </p>
 
 # Plan It
+
+**Link to project:**  https://events-production.up.railway.app/
+
 Full-stack app for anyone to plan an event, invite others to help with planning, 
 such bring items to the event, or volunteer at the event. Users can login to the account, create an event with event location, date, time. 
 They can add items for people to bring to the event, or ask for help with volunteering. 

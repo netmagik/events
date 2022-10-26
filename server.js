@@ -58,7 +58,7 @@ app.use('/events', eventRoutes)
 app.use('/items', itemRoutes)
 app.use('/guests', guestRoutes)
 
-const port = `$PORT`;
+const port = '$PORT';
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)

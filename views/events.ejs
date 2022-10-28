@@ -6,8 +6,8 @@
     </div>
     <!-- // Events Section -->
 <div class="flex gap-4 justify-center">
-        <% if (eventItems != null) {
-            eventItems.forEach( el => { %> 
+        <% if (eventItems != null) { 
+            eventItems.forEach(el => { %> 
 
         <div class="card">
             <div class="py-3 px-6 border-b border-gray-300">
@@ -40,12 +40,15 @@
                     </div>
             </div>
             <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
+                <% if (Math.ceil(((el.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) === 0) { %>
+                    <span class="text-red-500">Past Event</span>
+                <% }  else { %>
                 Days Left: <span class="font-bold"><%= Math.ceil(((el.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) %></span>
+                <% } %>
+            <% }) %> 
             </div>
         </div>
-    <% }) 
-    } %> 
-    
+    <% } %>
 
     <% if (invitedEvents != null) {
         invitedEvents.forEach( el => { %> 
@@ -71,8 +74,7 @@
                 Days Left: <span class="font-bold"><%= Math.ceil(((el.date).getTime() - new Date().getTime()) / (1000 * 3600 * 24)) %></span>
             </div>
         </div>
-    <% }) 
-    } %> 
+    <% })} %> 
 </div>
 
 <%- include('partials/footer.ejs') %>

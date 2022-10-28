@@ -23,4 +23,25 @@ A lot of times parents create a text message with a list of things needed for th
 - Set up reminders before the event
 - An option to find an event
 
+## Run Locally:
+Clone the project
+```
+git clone https://github.com/netmagik/events.git
+```
+
+Go to the project directory
+```
+cd events
+```
+Install dependencies
+```
+npm install
+```
+Start the server
+```
+npm run start
+```
+
+
+
 <img src="https://user-images.githubusercontent.com/3833560/193921402-ed81f456-b2ee-4d64-bf20-3c9f9b685b1f.png">

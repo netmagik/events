@@ -10,7 +10,7 @@ such bring items to the event, or volunteer at the event. Users can login to the
 They can add items for people to bring to the event, or ask for help with volunteering. 
 
 ## How It's Made:
-Tech used: HTML/CSS, TailwindCSS, EJS, JavaScript, Node.js, Express, MongoDB, Passport for Authentication
+Tech used: HTML/CSS, TailwindCSS, EJS, JavaScript, Node.js, Express, MongoDB, Passport for Authentication.
 
 ## Inspiration:
 My kid's school has a lot of events and parents help bring items and volunteer. There seemed to be a lack of easy to use tools with a clean UI. 
